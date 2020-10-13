@@ -7,7 +7,8 @@ target 'demo' do
 
 	pod 'ReachabilitySwift'
 	pod 'NVActivityIndicatorView'
-
+  pod 'SDWebImage'
+  
   # Pods for demo
 
 end
