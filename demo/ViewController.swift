@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var tableView = UITableView()
     var data = [JsonModel]()
     var jsonViewModel = JsonViewModel()
+    private let refreshControl = UIRefreshControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         tableView.allowsSelection = false
         self.view.addSubview(tableView)
         
+        tableView.addSubview(refreshControl)
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -35,6 +38,8 @@ class ViewController: UIViewController {
             ])
         
         
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+
         
         jsonViewModel.fetchData { [weak self] rows in
             DispatchQueue.main.async {
@@ -47,9 +52,18 @@ class ViewController: UIViewController {
     
     func updateUI() {
            tableView.reloadData()
+            refreshControl.endRefreshing()
+
        }
     
 
+    @objc private func refreshData(_ sender: Any) {
+          jsonViewModel.fetchData { [weak self] rows in
+                  DispatchQueue.main.async {
+                      self?.updateUI()
+                  }
+              }
+    }
 
 }
 
