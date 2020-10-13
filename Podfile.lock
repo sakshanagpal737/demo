@@ -1,0 +1,22 @@
+PODS:
+  - NVActivityIndicatorView (5.0.1):
+    - NVActivityIndicatorView/Base (= 5.0.1)
+  - NVActivityIndicatorView/Base (5.0.1)
+  - ReachabilitySwift (5.0.0)
+
+DEPENDENCIES:
+  - NVActivityIndicatorView
+  - ReachabilitySwift
+
+SPEC REPOS:
+  trunk:
+    - NVActivityIndicatorView
+    - ReachabilitySwift
+
+SPEC CHECKSUMS:
+  NVActivityIndicatorView: 738e843cb8924e9e4fc3e559d0728031624bf860
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+
+PODFILE CHECKSUM: d21be944ca88950a59f9e1442912fb200e49413e
+
+COCOAPODS: 1.9.1
